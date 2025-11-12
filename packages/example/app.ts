@@ -1,3 +1,4 @@
+import express from 'express';
 import {HttpTransport} from "@ts-rpc/core";
 
 async function startServer() {
