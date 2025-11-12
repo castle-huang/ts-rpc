@@ -63,7 +63,8 @@ export class HttpTransport {
 
         // Health check endpoint
         this.app.get('/health', (req: Request, res: Response) => {
-            res.json({status: 'healthy', timestamp: new Date().toISOString()});
+            const cwd = process.cwd();
+            res.json({status: 'healthy', timestamp: new Date().toISOString(),cwd});
         });
 
         // Build controller routes
