@@ -15,7 +15,7 @@
   },
   "include": [
     "app.ts",
-    "src/**/*."
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
