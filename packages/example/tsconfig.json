@@ -3,7 +3,7 @@
     "target": "ES6",
     "module": "CommonJS",
     "outDir": "./dist",
-    "rootDir": "./",
+    "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -15,8 +15,7 @@
   },
   "include": [
     "app.ts",
-    "src/*",
-    "src/**/*.ts"
+    "src/**/*."
   ],
   "exclude": [
     "node_modules",
