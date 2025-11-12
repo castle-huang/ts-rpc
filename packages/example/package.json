@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/app.js",
-    "dev:test": "ts-node app.ts"
+    "dev:test": "ts-node app.ts",
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "@ts-rpc/core": "^1.0.0",
