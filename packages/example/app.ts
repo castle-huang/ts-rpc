@@ -1,7 +1,3 @@
-import dotenv from 'dotenv';
-
-dotenv.config();
-
 import {HttpTransport} from "@ts-rpc/core";
 
 async function startServer() {
