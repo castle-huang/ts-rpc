@@ -1,13 +1,14 @@
 import express from 'express';
 import {HttpTransport} from "@ts-rpc/core";
 
-async function startServer() {
-    const server = new HttpTransport();
-    await server.start(3000);
-}
+const server = new HttpTransport();
 
-// @ts-ignore
+// 导出 Vercel 需要的 handler
+export default server.getApp();
+
+// 本地开发时启动服务器
 if (require.main === module) {
-    startServer().catch(console.error);
+    server.start(process.env.PORT ? parseInt(process.env.PORT) : 3000)
+        .catch(console.error);
     console.log('Server started');
 }
