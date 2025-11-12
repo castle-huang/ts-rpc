@@ -1,3 +1,5 @@
+import express, {Request, Response} from 'express';
+
 import {HttpTransport} from "@ts-rpc/core";
 // 显式导入所有服务，确保它们被编译
 // import fs from 'fs';
