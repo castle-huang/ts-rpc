@@ -1,0 +1,14 @@
+{
+  "name": "@ts-rpc/core",
+  "version": "1.0.0",
+  "description": "Core RPC framework with DI container",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "reflect-metadata": "^0.2.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ts-rpc-framework",
+  "version": "1.0.0",
+  "description": "TypeScript RPC Framework with DI and Auto-discovery",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "dev": "npm run dev --workspaces",
+    "clean": "npm run clean --workspaces",
+    "install:all": "npm install && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@ts-rpc/core": "^1.0.0"
+  }
+}
