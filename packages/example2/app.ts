@@ -1,22 +1,28 @@
-import dotenv from 'dotenv';
+import express, {Request, Response} from 'express';
 
-dotenv.config();
-import {HttpTransport, ServiceRegistry, ServiceProxy} from "@ts-rpc/core";
+import {HttpTransport} from "@ts-rpc/core";
+// 显式导入所有服务，确保它们被编译
+import fs from 'fs';
+import path from 'path';
+
+async function importAllServices() {
+    const serviceDir = path.join(__dirname, 'src');
+    const files = fs.readdirSync(serviceDir);
+
+    for (const file of files) {
+        if (file.endsWith('.ts') || file.endsWith('.js')) {
+            await import(path.join(serviceDir, file));
+        }
+    }
+}
 
 async function startServer() {
-    const registry = new ServiceRegistry(new ServiceProxy({
-        baseURL: 'http://localhost:3000',
-        timeout: 30000,
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }));
-    await registry.autoDiscover("test")
+    await importAllServices();
     const server = new HttpTransport();
-    await server.start(3001);
+    const port = parseInt(process.env.PORT || '3000');
+    await server.start(port, ['src', 'packages/example/src']);
 }
 
-if (require.main === module) {
-    startServer().catch(console.error);
-    console.log('Server started');
-}
+
+startServer().catch(console.error);
+console.log('Server started');

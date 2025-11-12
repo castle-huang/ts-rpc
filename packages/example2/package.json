@@ -3,14 +3,20 @@
   "version": "1.0.0",
   "description": "Example usage of TS RPC framework",
   "scripts": {
+    "prebuild": "cd ../core && npm run build",
     "build": "tsc",
-    "dev:test": "ts-node app.ts"
+    "start": "node dist/app.js",
+    "dev:test": "ts-node app.ts",
+    "vercel-build": "npm run prebuild && npm run build"
   },
   "dependencies": {
     "@ts-rpc/core": "^1.0.0",
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
   },
   "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^20.19.5",
     "ts-node": "^10.9.1"
   }
 }
