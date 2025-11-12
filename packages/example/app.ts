@@ -3,13 +3,12 @@ import {HttpTransport} from "@ts-rpc/core";
 async function startServer() {
     const server = new HttpTransport();
     const port = parseInt(process.env.PORT || '3000');
-    await server.start(port, ['dist/src', 'src', 'public']);
+    await server.start(port, ['./']);
 }
 
-if (require.main === module) {
-    startServer().catch(console.error);
-    console.log('Server started');
-}
+
+startServer().catch(console.error);
+console.log('Server started');
 
 // src/app.ts
 import express, {Request, Response} from 'express';
