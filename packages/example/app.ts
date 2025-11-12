@@ -3,7 +3,7 @@ import {HttpTransport} from "@ts-rpc/core";
 async function startServer() {
     const server = new HttpTransport();
     const port = parseInt(process.env.PORT || '3000');
-    await server.start(port);
+    await server.start(port, ['dist/src']);
 }
 
 startServer().catch(console.error);
