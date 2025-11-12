@@ -34,7 +34,6 @@ export class ServiceScanner {
     async scanServices(directories: string[] = ['src']): Promise<ScannedService[]> {
         const scannedServices: ScannedService[] = [];
         const projectRoot = process.cwd();
-
         for (const dir of directories) {
             const relativeDir = dir.startsWith('./') ? dir.substring(2) : dir;
             // Check if directory exists
@@ -44,10 +43,9 @@ export class ServiceScanner {
                 continue;
             }
 
-            const files = glob.sync(`${dir}/**/*.ts`, {
-                ignore: ['**/*.test.ts', '**/*.spec.ts', '**/*.d.ts']
+            const files = glob.sync(`${dir}/**/*.{ts,js}`, {
+                ignore: ['**/*.test.{ts,js}', '**/*.spec.{ts,js}', '**/*.d.ts']
             });
-
             for (const file of files) {
                 const services = await this.scanFile(`${projectRoot}/${file}`);
                 scannedServices.push(...services);
