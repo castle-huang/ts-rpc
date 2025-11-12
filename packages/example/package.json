@@ -4,6 +4,7 @@
   "description": "Example usage of TS RPC framework",
   "scripts": {
     "build": "tsc",
+    "start": "node dist/app.js",
     "dev:test": "ts-node app.ts"
   },
   "dependencies": {
