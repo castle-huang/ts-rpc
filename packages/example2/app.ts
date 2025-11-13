@@ -16,7 +16,6 @@ async function importAllServices() {
     }
 }
 
-
 async function startServer() {
     await importAllServices();
     const registry = new ServiceRegistry(new ServiceProxy({
@@ -29,14 +28,9 @@ async function startServer() {
     }));
     await registry.autoDiscover("test")
     const server = new HttpTransport();
-
-    async function startServer() {
-        await importAllServices();
-        const server = new HttpTransport();
-        const port = parseInt(process.env.PORT || '3000');
-        await server.start(port, ['src', 'packages/example2/src']);
-    }}
-
+    const port = parseInt(process.env.PORT || '3000');
+    await server.start(port, ['src', 'packages/example2/src']);
+}
 
 startServer().catch(console.error);
 console.log('Server started');
