@@ -1,26 +1,22 @@
 {
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "CommonJS",
-    "outDir": "./dist",
-    "rootDir": "./",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declaration": false,
-    "sourceMap": false
+  "name": "@ts-rpc/example",
+  "version": "1.0.0",
+  "description": "Example usage of TS RPC framework",
+  "scripts": {
+    "prebuild": "cd ../core && npm run build",
+    "build": "tsc",
+    "start": "node dist/app.js",
+    "dev:test": "ts-node app.ts",
+    "vercel-build": "npm run prebuild && npm run build"
   },
-  "include": [
-    "app.ts",
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "**/*.test.ts",
-    "**/*.spec.ts"
-  ]
+  "dependencies": {
+    "@ts-rpc/core": "^1.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^20.19.5",
+    "ts-node": "^10.9.1"
+  }
 }
