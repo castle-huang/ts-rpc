@@ -34,7 +34,7 @@ async function startServer() {
         await importAllServices();
         const server = new HttpTransport();
         const port = parseInt(process.env.PORT || '3000');
-        await server.start(port, ['src', 'packages/example/src']);
+        await server.start(port, ['src', 'packages/example2/src']);
     }}
 
 
