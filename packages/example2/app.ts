@@ -29,7 +29,7 @@ async function startServer() {
     }));
     await registry.autoDiscover("test")
     const server = new HttpTransport();
-    await server.start(3001);
+    await server.start(3001,['src', 'packages/example2/src']);
 }
 
 
